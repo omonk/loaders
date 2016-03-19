@@ -113,6 +113,48 @@ $lines-timing: .8s;
     }
 }
 
+.loader-orbit {
+    $dots-size: $size / 5;
+    position: relative;
+
+    & > div {
+        border-radius: 50%;
+
+        &:nth-child(1) {
+            background-color: transparent;
+            border: 1px solid $bg;
+        }
+
+        &:nth-child(2) {
+            width: $dots-size;
+            height: $dots-size;
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            right: 0;
+            margin: auto;
+        }
+
+        &:nth-child(3) {
+            width: $dots-size;
+            height: $dots-size;
+            position: absolute;
+            display: inline-block;
+            margin: auto;
+            top: 7px;
+            left: 0;
+            bottom: 0;
+            left: -$dots-size + 4px;
+            transform: translateY(-50%);
+            animation: 2s completeRotate linear infinite;
+            transform-origin: 18px center;
+        }
+    }
+}
+
+
 .loader-triangles {
     position: relative;
     $triangle-width: 10px;
