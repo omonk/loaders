@@ -15,6 +15,7 @@ $lines-timing: .8s;
 
 * {
     animation-timing-function: cubic-bezier(.15,.46,.9,.6);
+    color: $bg;
 }
 
 .loader {
@@ -34,7 +35,7 @@ $lines-timing: .8s;
     & > div {
         animation: pulse $pulse-timing infinite;
         border-radius: 50%;
-        opacity: .3;
+        opacity: .8;
         position: absolute;
         top: 0;
         left: 0;
@@ -55,27 +56,22 @@ $lines-timing: .8s;
     & > div {
         position: absolute;
         height: 5px;
-        // opacity: .3;
-        
         width: $size;
         margin-top: 13px;
-        animation: completeRotate 1s infinite;
-        animation-timing-function: linear;
+        animation: 2s completeRotate infinite alternate-reverse;
 
         &:before {
             content: '';
             width: 100%;
             height: 100%;
             position: absolute;
-            transform: rotate(45deg);
-            background-color: white;
+            background-color: $bg;
         }
 
         &:nth-child(2) {
-            transform: rotate(90deg);
 
             &:before {
-                transform: rotate(45deg);
+                transform: rotate(90deg);
             }
         }
     }
@@ -95,7 +91,7 @@ $lines-timing: .8s;
         top: 0;
         bottom: 0;
         margin: auto 0;
-        opacity: .5;
+        // opacity: .5;
 
         &:nth-child(1) {
             left: 0;
@@ -121,8 +117,8 @@ $lines-timing: .8s;
 .loader-triangles {
     position: relative;
     $triangle-width: 10px;
-    $tri-timing: .5s;
-    $tri-timing-delay: $tri-timing;
+    $tri-timing: 1s;
+    $tri-timing-delay: $tri-timing / 4;
 
     & > div {
         width: 0;
@@ -159,6 +155,7 @@ $lines-timing: .8s;
             border-width: 0 $triangle-width $triangle-width $triangle-width;
             border-color: transparent transparent $border-color transparent;
             animation-delay: $tri-timing-delay * 2;
+
         }
 
         &:nth-child(4) {
@@ -166,7 +163,9 @@ $lines-timing: .8s;
             top: 4px;
             border-width: $triangle-width 0 $triangle-width $triangle-width;
             border-color: transparent transparent transparent $border-color;
-            animation-delay: $tri-timing-delay * 4;
+
+            animation-delay: $tri-timing-delay * 3;
+
         }
     }
 }
