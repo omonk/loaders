@@ -91,7 +91,6 @@ $lines-timing: .8s;
         top: 0;
         bottom: 0;
         margin: auto 0;
-        // opacity: .5;
 
         &:nth-child(1) {
             left: 0;
@@ -117,7 +116,7 @@ $lines-timing: .8s;
 .loader-triangles {
     position: relative;
     $triangle-width: 10px;
-    $tri-timing: 1s;
+    $tri-timing: 0.5s;
     $tri-timing-delay: $tri-timing / 4;
 
     & > div {
