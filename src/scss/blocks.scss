@@ -1,0 +1,172 @@
+// Globals
+$size: 30px;
+$bg: #EF9A2F;
+$border-color: $bg;
+
+
+// Animation specific
+$pulse-timing: 2s;
+$lines-timing: .8s;
+
+
+.loader-wrap {
+    @include fp(padding, 50, 100);
+}
+
+* {
+    animation-timing-function: cubic-bezier(.15,.46,.9,.6);
+}
+
+.loader {
+    height: $size;
+    width: $size;
+
+    & > div {
+        background-color: $bg;
+        height: $size;
+        width: $size;
+    }
+}
+
+.loader-pulse {
+    position: relative;
+
+    & > div {
+        animation: pulse $pulse-timing infinite;
+        border-radius: 50%;
+        opacity: .3;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &:nth-child(2) {
+            animation-delay: -$pulse-timing / 2;
+        }
+
+        &:nth-child(3) {
+            animation-delay: $pulse-timing;
+        }
+    }
+}
+
+.loader-lines {
+    position: relative;
+
+    & > div {
+        position: absolute;
+        height: 5px;
+        // opacity: .3;
+        
+        width: $size;
+        margin-top: 13px;
+        animation: completeRotate 1s infinite;
+        animation-timing-function: linear;
+
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform: rotate(45deg);
+            background-color: white;
+        }
+
+        &:nth-child(2) {
+            transform: rotate(90deg);
+
+            &:before {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+
+.loader-dots {
+    position: relative;
+    $dots-size: $size / 5;
+
+    & > div {
+        width: $dots-size;
+        height: $dots-size;
+        border-radius: 50%;
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        opacity: .5;
+
+        &:nth-child(1) {
+            left: 0;
+            transform-origin: 15px center;
+            animation: completeRotate 1s infinite;
+        }
+
+        &:nth-child(2) {
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        &:nth-child(3) {
+            right: 0;
+            transform-origin: -9px center;
+            animation: completeRotate 1s infinite;
+        }
+
+    }
+}
+
+.loader-triangles {
+    position: relative;
+    $triangle-width: 10px;
+    $tri-timing: .5s;
+    $tri-timing-delay: $tri-timing;
+
+    & > div {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        display: inline-block;
+        position: absolute;
+        animation: triPulse infinite ease $tri-timing;
+        animation-timing-function: linear;
+        background-color: transparent;
+
+        &:nth-child(1) {
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            border-width: $triangle-width $triangle-width 0 $triangle-width;
+            border-color: $border-color transparent transparent transparent;
+        }
+
+        &:nth-child(2) {
+            right: 0;
+            top: 4px;
+            border-width: $triangle-width $triangle-width $triangle-width 0;
+            border-color: transparent $border-color transparent transparent;
+            animation-delay: $tri-timing-delay;
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            border-width: 0 $triangle-width $triangle-width $triangle-width;
+            border-color: transparent transparent $border-color transparent;
+            animation-delay: $tri-timing-delay * 2;
+        }
+
+        &:nth-child(4) {
+            left: 0;
+            top: 4px;
+            border-width: $triangle-width 0 $triangle-width $triangle-width;
+            border-color: transparent transparent transparent $border-color;
+            animation-delay: $tri-timing-delay * 4;
+        }
+    }
+}
