@@ -35,7 +35,7 @@ $lines-timing: .8s;
     & > div {
         animation: pulse $pulse-timing infinite;
         border-radius: 50%;
-        opacity: .8;
+        opacity: .5;
         position: absolute;
         top: 0;
         left: 0;
@@ -209,4 +209,28 @@ $lines-timing: .8s;
 
         }
     }
+}
+
+
+.loader-timer {
+    position: relative;
+
+    & > div {
+
+        &:nth-child(1) {
+            clip-path: polygon(100% 0, 75% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+        }
+
+        &:nth-child(2) {
+            position: absolute;
+            top: 0;
+            clip-path: polygon(100% 0, 75% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+            animation: upDown 1s infinite alternate linear;
+        }
+    }
+}
+
+@keyframes upDown {
+    from { top: 0%; }
+    to { top: 100% }
 }
