@@ -1,5 +1,8 @@
-var gp = require('gulp-load-plugins')(),
-	gulp = require('gulp');
+var gp = require('gulp-load-plugins')()
+var gulp = require('gulp');
+var livereload = require('gulp-livereload');
+
+livereload({ start: true});
 
 var deploy = false
 	, watching = false
@@ -14,11 +17,12 @@ gulp.task('sass', function() {
 		.pipe(gp.autoprefixer())
 		// .pipe(gp.if(deploy, gp.minifyCss()))
 		.pipe(gulp.dest('./build/css/'))
+		.pipe(livereload());
 })
 
 gulp.task('default', function(callback) {
-
 	watching = true
+	livereload.listen();
 	gulp.watch("./src/scss/**/*.scss", ['sass'])
 	gulp.watch('./src/fonts/**/*', ['fonts'])
 	gulp.watch('./src/img/**/*', ['images'])

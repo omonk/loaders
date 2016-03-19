@@ -1,5 +1,5 @@
 {
-  "name": "skyworks",
+  "name": "loaders",
   "version": "1.0.0",
   "description": "Loaders",
   "main": "server.js",
