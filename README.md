@@ -17,6 +17,11 @@ then
 gulp sass
 ```
 
+Repo currently has a small node server file included
+
+```
+node server.js
+```
 ## TODO:
 
 * Look into performance
