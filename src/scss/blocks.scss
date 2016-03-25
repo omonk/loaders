@@ -24,6 +24,7 @@ $lines-timing: .8s;
 .loader {
     height: $size;
     width: $size;
+    margin: 0 auto;
 
     & > div {
         background-color: $bg;
