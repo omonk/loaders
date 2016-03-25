@@ -230,7 +230,28 @@ $lines-timing: .8s;
     }
 }
 
-@keyframes upDown {
-    from { top: 0%; }
-    to { top: 100% }
+
+.loader-box {
+    $animation-time: .5s;
+    $box-length: 5;
+    position: relative;
+    transform-origin: center;
+
+    & > div {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        width: $size;
+        height: $size;
+        border: 1px solid $bg;
+        border-radius: 10%;
+        animation: completeRotate infinite linear $animation-time;
+
+        @for $i from 1 through $box-length {
+            &:nth-child(#{$i}) {
+                animation-delay: $animation-time * -($i / $box-length);
+            }
+        }
+    }
 }

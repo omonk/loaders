@@ -43,3 +43,21 @@
         transform: scale(1);
     }
 }
+
+@keyframes upDown {
+    from { top: 0%; }
+    to { top: 100% }
+}
+
+
+@keyframes boxSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(360deg);
+    }
+
+    
+}
