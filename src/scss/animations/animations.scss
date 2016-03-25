@@ -58,6 +58,50 @@
     50% {
         transform: rotate(360deg);
     }
+}
 
-    
+@keyframes boxScaleAndSpin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+    }
+
+    44% {
+        transform: rotate(90deg);
+    }
+
+    66% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes boxScaleAndSpinPsuedo {
+
+    0% {
+        top: 0;
+    }
+
+    10% {
+        top: -50%;
+    }
+
+    44% {
+        top: -50%;
+    }
+
+    66% {
+        top: 0;
+    }
+
+    100% {
+        top: 0;
+    }
 }
