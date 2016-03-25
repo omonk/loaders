@@ -11,11 +11,14 @@ $lines-timing: .8s;
 
 .loader-wrap {
     @include fp(padding, 50, 100);
+    width: 25%;
 }
 
 * {
     animation-timing-function: cubic-bezier(.15,.46,.9,.6);
     color: $bg;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .loader {
@@ -35,7 +38,7 @@ $lines-timing: .8s;
     & > div {
         animation: pulse $pulse-timing infinite;
         border-radius: 50%;
-        opacity: .5;
+        opacity: .7;
         position: absolute;
         top: 0;
         left: 0;
@@ -58,7 +61,7 @@ $lines-timing: .8s;
         height: 5px;
         width: $size;
         margin-top: 13px;
-        animation: 2s completeRotate infinite alternate-reverse;
+        // animation: 2s completeRotate infinite  linear;
 
         &:before {
             content: '';
@@ -232,7 +235,7 @@ $lines-timing: .8s;
 
 
 .loader-box {
-    $animation-time: .5s;
+    $animation-time: 2s;
     $box-length: 5;
     position: relative;
     transform-origin: center;
