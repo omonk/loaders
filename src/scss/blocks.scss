@@ -234,9 +234,9 @@ $lines-timing: .8s;
 }
 
 
-.loader-box {
+.loader-geo {
     $animation-time: 2s;
-    $box-length: 5;
+    $geo-length: 5;
     position: relative;
     transform-origin: center;
 
@@ -251,9 +251,9 @@ $lines-timing: .8s;
         border-radius: 10%;
         animation: completeRotate infinite linear $animation-time;
 
-        @for $i from 1 through $box-length {
+        @for $i from 1 through $geo-length {
             &:nth-child(#{$i}) {
-                animation-delay: $animation-time * -($i / $box-length);
+                animation-delay: $animation-time * -($i / $geo-length);
             }
         }
     }
