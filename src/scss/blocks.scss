@@ -62,11 +62,12 @@ $lines-timing: .8s;
         height: 5px;
         width: $size;
         margin-top: 13px;
-        // animation: 2s completeRotate infinite  linear;
+        animation: 2s completeRotate infinite  linear;
 
         &:before {
             content: '';
             width: 100%;
+            left: 0;
             height: 100%;
             position: absolute;
             background-color: $bg;
@@ -147,13 +148,11 @@ $lines-timing: .8s;
             position: absolute;
             display: inline-block;
             margin: auto;
-            top: 7px;
-            left: 0;
+            top: 0;
             bottom: 0;
-            left: -$dots-size + 4px;
-            transform: translateY(-50%);
+            left: -$dots-size / 2;
             animation: 2s completeRotate linear infinite;
-            transform-origin: 18px center;
+            transform-origin: ($size / 2 + ($dots-size / 2)) center;
         }
     }
 }
