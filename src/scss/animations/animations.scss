@@ -74,34 +74,37 @@
         transform: rotate(90deg);
     }
 
-    66% {
-        transform: rotate(90deg);
-    }
-
     100% {
         transform: rotate(90deg);
     }
 }
 
-@keyframes boxScaleAndSpinPsuedo {
+@mixin boxScaleDir($dir, $factor: -40%, $bounds: 20) {
 
-    0% {
-        top: 0;
-    }
+    $top: 0 + $bounds + %;
+    $bottom: 100 - $bounds + %;
 
-    10% {
-        top: -50%;
-    }
+    @keyframes boxScaleAndSpinPsuedo-#{$dir} {
 
-    44% {
-        top: -50%;
-    }
+        0% {
+            #{$dir}: 0;
+        }
 
-    66% {
-        top: 0;
-    }
+        #{$top} {
+            #{$dir}: #{$factor};
+        }
 
-    100% {
-        top: 0;
+        #{$bottom} {
+            #{$dir}: #{$factor};
+        }
+
+        100% {
+            #{$dir}: 0;
+        }
     }
 }
+
+@include boxScaleDir(top);
+@include boxScaleDir(right);
+@include boxScaleDir(bottom);
+@include boxScaleDir(left);
