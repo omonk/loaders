@@ -1,5 +1,7 @@
 # MORE LOADERS!
 
+![alt text](./loaders.gif)
+
 A few very basic loaders I decided I wanted to put together, heavily (if not completely) inspired by Connor Athertons already stellar library [loaders.css](https://github.com/ConnorAtherton/loaders.css)
 
 A complete work in progress for the time being.
