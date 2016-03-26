@@ -108,3 +108,23 @@
 @include boxScaleDir(right);
 @include boxScaleDir(bottom);
 @include boxScaleDir(left);
+
+@mixin discDirections($name, $i: top, $j: left, $size: 15px) {
+    @keyframes disc#{$name} {
+        from {
+            #{$i}: 0;
+            #{$j}: 0;
+        }
+
+        to {
+            #{$i}: calc(100% - #{$size});
+            #{$j}: calc(100% - #{$size});
+        }
+    }
+
+}
+
+@include discDirections($name: 'TopLeft');
+@include discDirections($name: 'TopRight', $j: right);
+@include discDirections($name: 'BottomRight', $i: bottom, $j: right)
+@include discDirections($name: 'BottomLeft', $i: bottom);

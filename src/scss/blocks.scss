@@ -316,3 +316,41 @@ $lines-timing: .8s;
         }
     }
 }
+
+
+.loader-disc {
+    position: relative;
+    $disc-speed: .75s;
+
+    & > div {
+        @include size(15px);
+        position: absolute;
+        border-radius: 20%;
+        background-color: transparent;
+        border: 1px solid $bg;
+
+        &:nth-child(1) {
+            top: 0;
+            left:0;
+            animation: discTopLeft linear infinite alternate $disc-speed;
+        }
+
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation: discTopRight linear infinite alternate $disc-speed;
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            animation: discBottomRight linear infinite alternate $disc-speed;
+        }
+
+        &:nth-child(4) {
+            bottom: 0;
+            left: 0;
+            animation: discBottomLeft linear infinite alternate $disc-speed;
+        }
+    }
+}
