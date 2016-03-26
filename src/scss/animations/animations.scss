@@ -109,6 +109,7 @@
 @include boxScaleDir(bottom);
 @include boxScaleDir(left);
 
+
 @mixin discDirections($name, $i: top, $j: left, $size: 15px) {
     @keyframes disc#{$name} {
         from {
@@ -128,3 +129,14 @@
 @include discDirections($name: 'TopRight', $j: right);
 @include discDirections($name: 'BottomRight', $i: bottom, $j: right)
 @include discDirections($name: 'BottomLeft', $i: bottom);
+
+
+@keyframes discSpin {
+    to {
+        transform: rotate3d(1, 1, 1, 0deg);
+    }
+
+    from {
+        transform: rotate3d(1, 1, 1, -360deg);
+    }
+}
