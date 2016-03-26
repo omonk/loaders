@@ -10,7 +10,7 @@ $lines-timing: .8s;
 
 
 .loader-wrap {
-    @include fp(padding, 50, 100);
+    @include fp(padding, 30, 50);
     width: 25%;
 }
 
@@ -259,6 +259,32 @@ $lines-timing: .8s;
     }
 }
 
+
+.loader-geo-disc {
+    $geo-disc-count: 5;
+    $geo-disc-size: 20px;
+    $geo-disc-time: 1s;
+
+    position: relative;
+
+    & > div {
+        @include size($geo-disc-size);
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid $bg;
+        background-color: transparent;
+        animation: upDownDownUp linear infinite $geo-disc-time;
+
+        @for $i from 1 through $geo-disc-count {
+            &:nth-child(#{$i}) {
+                left: ((-$i * $geo-disc-count) / 2 + px);
+                animation-delay: (-$geo-disc-time * $i) / 10
+            }
+        }
+    }
+}
+
+
 .loader-box {
     position: relative;
 
@@ -320,12 +346,12 @@ $lines-timing: .8s;
 
 .loader-disc {
     position: relative;
-    $disc-speed: 1s;
+    $disc-speed: .75s;
 
     & > div {
         @include size(15px);
         position: absolute;
-        border-radius: 35%;
+        border-radius: 30%;
         background-color: transparent;
         border: 1px solid $bg;
 
@@ -359,11 +385,12 @@ $lines-timing: .8s;
     position: relative;
 
     & > div {
+        @include size(30px);
         position: absolute;
+
         border-radius: 50%;
         background-color: transparent;
         border: 1px solid $bg;
-        opacity: 1;
 
         &:nth-child(1) {
             animation: discSpin linear infinite alternate .75s;

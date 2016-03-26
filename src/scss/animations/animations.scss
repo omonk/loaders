@@ -49,6 +49,28 @@
     to { top: 100% }
 }
 
+@keyframes upDownDownUp {
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: 50%;
+    }
+
+    50% {
+        top: 0;
+    }
+
+    75% {
+        top: -50%;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
 
 @keyframes boxSpin {
     0% {
@@ -104,6 +126,7 @@
     }
 }
 
+
 @include boxScaleDir(top);
 @include boxScaleDir(right);
 @include boxScaleDir(bottom);
@@ -115,14 +138,15 @@
         from {
             #{$i}: 0;
             #{$j}: 0;
+            transform: rotate(0deg);
         }
 
         to {
             #{$i}: calc(100% - #{$size});
             #{$j}: calc(100% - #{$size});
+            transform: rotate(360deg);
         }
     }
-
 }
 
 @include discDirections($name: 'TopLeft');
