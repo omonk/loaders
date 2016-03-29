@@ -71,13 +71,47 @@
     }
 }
 
-@keyframes volcanoBomb {
+@keyframes volcanoBombLeft {
     0% {
-        
+        bottom: 50%;
+    }
+
+    50% {
+        bottom: 100%;
+        left: 10%;
+    }
+
+    75% {
+        opacity: 1;
+        left: -50%;
+        bottom: 200%;
     }
 
     100% {
+        bottom: 150%;
+        opacity: 0;
+    }
+}
 
+@keyframes volcanoBombRight {
+    0% {
+        bottom: 50%;
+    }
+
+    50% {
+        bottom: 100%;
+        right: 10%;
+    }
+
+    75% {
+        opacity: 1;
+        right: -50%;
+        bottom: 200%;
+    }
+
+    100% {
+        bottom: 150%;
+        opacity: 0;
     }
 }
 
