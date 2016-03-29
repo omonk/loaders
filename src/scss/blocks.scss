@@ -82,6 +82,26 @@ $lines-timing: .8s;
     }
 }
 
+.loader-volcano {
+    position: relative;
+
+    & > div {
+        position: absolute;
+
+        &:nth-child(1) {
+            border-radius: 50%;
+            @include size($size/4);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        &:nth-child(2) {
+            clip-path: polygon(30% 0, 60% 0, 100% 100%, 0 100%);
+        }
+    }
+}
+
 
 .loader-dots {
     position: relative;
