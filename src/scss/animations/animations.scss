@@ -176,26 +176,36 @@
 @include boxScaleDir(left);
 
 
-@mixin discDirections($name, $i: top, $j: left, $size: 15px) {
+@mixin discDirections($name, $transform, $i: top, $j: left, $size: 15px) {
     @keyframes disc#{$name} {
         from {
             #{$i}: 0;
             #{$j}: 0;
-            transform: rotate(0deg);
+            @if ($transform = true) {
+                transform: rotate(0deg);
+            }
         }
 
         to {
             #{$i}: calc(100% - #{$size});
             #{$j}: calc(100% - #{$size});
-            transform: rotate(360deg);
+            @if ($transform = true) {
+                transform: rotate(360deg);
+            }
         }
     }
 }
 
-@include discDirections($name: 'TopLeft');
-@include discDirections($name: 'TopRight', $j: right);
-@include discDirections($name: 'BottomRight', $i: bottom, $j: right)
-@include discDirections($name: 'BottomLeft', $i: bottom);
+@include discDirections($name: 'TopLeftTransform', $transform: true);
+@include discDirections($name: 'TopRightTransform', $j: right, $transform: true);
+@include discDirections($name: 'BottomRightTransform', $i: bottom, $j: right, $transform: true);
+@include discDirections($name: 'BottomLeftTransform', $i: bottom, $transform: true);
+
+@include discDirections($name: 'TopLeft', $transform: false);
+@include discDirections($name: 'TopRight', $j: right, $transform: false);
+@include discDirections($name: 'BottomRight', $i: bottom, $j: right, $transform: false);
+@include discDirections($name: 'BottomLeft', $i: bottom, $transform: false);
+
 
 
 @keyframes discSpin {

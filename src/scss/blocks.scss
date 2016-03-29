@@ -198,7 +198,6 @@ $lines-timing: .8s;
     }
 }
 
-
 .loader-triangles {
     position: relative;
     $triangle-width: 10px;
@@ -380,6 +379,44 @@ $lines-timing: .8s;
                 border-left: solid $bg;
                 animation: boxScaleAndSpinPsuedo-left infinite alternate forwards linear 2s;
             }
+        }
+    }
+}
+
+.loader-square-crossover {
+    position: relative;
+    $sq-timing: linear;
+    $sq-duration: .75s;
+
+    & > div {
+        position: absolute;
+        background-color: transparent;
+        border: 1px solid $bg;
+        @include size($size/2);
+        border-radius: 30%;
+
+        &:nth-child(1) {
+            left: 0;
+            right: 0;
+            animation: discTopLeft $sq-timing infinite alternate $sq-duration;
+        }
+
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation: discTopRight $sq-timing infinite alternate $sq-duration;
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            animation: discBottomRight $sq-timing infinite alternate $sq-duration;
+        }
+
+        &:nth-child(4) {
+            left: 0;
+            bottom: 0;
+            animation: discBottomLeft $sq-timing infinite alternate $sq-duration;
         }
     }
 }
